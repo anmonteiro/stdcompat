@@ -656,6 +656,22 @@ C_END_WITH_WIN32
 C_BEGIN_WITH_WIN32
 END_WITH_WIN32
 BEGIN_WITH_WIN32
+C_END_BEFORE_5_5_0
+C_BEGIN_BEFORE_5_5_0
+END_BEFORE_5_5_0
+BEGIN_BEFORE_5_5_0
+C_END_FROM_5_5_0
+C_BEGIN_FROM_5_5_0
+END_FROM_5_5_0
+BEGIN_FROM_5_5_0
+C_END_BEFORE_5_4_0
+C_BEGIN_BEFORE_5_4_0
+END_BEFORE_5_4_0
+BEGIN_BEFORE_5_4_0
+C_END_FROM_5_4_0
+C_BEGIN_FROM_5_4_0
+END_FROM_5_4_0
+BEGIN_FROM_5_4_0
 C_END_BEFORE_5_3_0
 C_BEGIN_BEFORE_5_3_0
 END_BEFORE_5_3_0
@@ -5295,6 +5311,64 @@ else case e in #(
    C_BEGIN_FROM_5_3_0='#if 0'
 
    C_END_FROM_5_3_0='#endif'
+
+
+
+
+    ;;
+esac
+fi
+if test `printf "$OCAMLVERSION\n5.4.0" | sort | head -n1` = 5.4.0
+then :
+
+
+
+
+     BEGIN_BEFORE_5_4_0='(*'
+
+   END_BEFORE_5_4_0='*)'
+
+   C_BEGIN_BEFORE_5_4_0='#if 0'
+
+   C_END_BEFORE_5_4_0='#endif'
+
+else case e in #(
+  e) BEGIN_FROM_5_4_0='(*'
+
+   END_FROM_5_4_0='*)'
+
+   C_BEGIN_FROM_5_4_0='#if 0'
+
+   C_END_FROM_5_4_0='#endif'
+
+
+
+
+    ;;
+esac
+fi
+if test `printf "$OCAMLVERSION\n5.5.0" | sort | head -n1` = 5.5.0
+then :
+
+
+
+
+     BEGIN_BEFORE_5_5_0='(*'
+
+   END_BEFORE_5_5_0='*)'
+
+   C_BEGIN_BEFORE_5_5_0='#if 0'
+
+   C_END_BEFORE_5_5_0='#endif'
+
+else case e in #(
+  e) BEGIN_FROM_5_5_0='(*'
+
+   END_FROM_5_5_0='*)'
+
+   C_BEGIN_FROM_5_5_0='#if 0'
+
+   C_END_FROM_5_5_0='#endif'
 
 
 

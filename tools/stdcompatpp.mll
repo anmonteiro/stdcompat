@@ -117,7 +117,8 @@ let check_block_end state end_tag = match state.blocks with
 
 let known_tags compiler_version = [
   "BIG_ENDIAN", string_of_bool Sys.big_endian;
-  "OCAML_DEVELOPMENT_VERSION", "false";
+  "OCAML_DEVELOPMENT_VERSION",
+    string_of_bool (Compiler_version.is_development compiler_version);
   "OCAML_RELEASE_EXTRA",
     Compiler_version.ocaml_of_extra_info_opt
       (Compiler_version.extra_info compiler_version);

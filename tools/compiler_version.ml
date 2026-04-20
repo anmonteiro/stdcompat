@@ -39,6 +39,10 @@ let patch_level v= v.patch_level
 
 let extra_info v = v.extra_info
 
+let has_prefix ~prefix s =
+  let prefix_len = String.length prefix in
+  String.length s >= prefix_len && String.sub s 0 prefix_len = prefix
+
 let mk x y z =
   { major = x; minor = y; patch_level = z; extra_info = None; }
 
@@ -89,6 +93,7 @@ let v5_2_1 = mk 5 2 1
 let v5_3_0 = mk 5 3 0
 let v5_4_0 = mk 5 4 0
 let v5_4_1 = mk 5 4 1
+let v5_5_0 = mk 5 5 0
 
 let known_versions =
 [
@@ -137,11 +142,16 @@ let known_versions =
   v5_3_0;
   v5_4_0;
   v5_4_1;
+  v5_5_0;
 ]
 
 let is_known v = List.mem v known_versions
 
-let is_development _ = false
+let is_development v =
+  match v.extra_info with
+  | Some (Tilde, _) -> true
+  | Some (Plus, extra) -> has_prefix ~prefix:"trunk" extra
+  | None -> false
 
 let make x y z extra_info =
   let v = mk x y z in

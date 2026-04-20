@@ -5,8 +5,8 @@ exception Finally_raised of exn
 val compose : ('b -> 'c) -> ('a -> 'b) -> 'a -> 'c
 (** @since 5.2.0: val compose : ('b -> 'c) -> ('a -> 'b) -> 'a -> 'c *)
 
-external id : 'a -> 'a = "%identity"
-(** @since 4.08.0: external id : 'a -> 'a = "%identity" *)
+val id : 'a -> 'a
+(** @since 4.08.0: val id : 'a -> 'a *)
 
 val const : 'a -> 'b -> 'a
 (** @since 4.08.0: val const : 'a -> 'b -> 'a *)

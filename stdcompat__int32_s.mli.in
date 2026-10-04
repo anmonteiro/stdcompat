@@ -167,6 +167,10 @@ external of_float : float -> int32 = "int32_of_float"
 @since 3.07.0: external of_float : float -> int32 = "int32_of_float"
  *)
 
+@BEGIN_FROM_5_6_0@
+external to_float : int32 -> float = "%int32_to_float"
+@END_FROM_5_6_0@
+@BEGIN_BEFORE_5_6_0@
 @BEGIN_FROM_4_03_0@
 external to_float :
   int32 -> float = "caml_int32_to_float" "caml_int32_to_float_unboxed"
@@ -181,7 +185,9 @@ external to_float : int32 -> float = "int32_to_float"
 @END_BEFORE_3_08_0@
 
 @END_BEFORE_4_03_0@
-(** @since 4.03.0:
+@END_BEFORE_5_6_0@
+(** @since 5.6.0: external to_float : int32 -> float = "%int32_to_float"
+@since 4.03.0:
     external to_float :
       int32 -> float = "caml_int32_to_float" "caml_int32_to_float_unboxed"
     [@@unboxed ][@@noalloc ]

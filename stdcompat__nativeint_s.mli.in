@@ -105,6 +105,10 @@ external of_int : int -> nativeint = "%nativeint_of_int"
 external to_int : nativeint -> int = "%nativeint_to_int"
 (** Alias for {!Nativeint.to_int} *)
 
+@BEGIN_FROM_5_6_0@
+external of_float : float -> nativeint = "%nativeint_of_float"
+@END_FROM_5_6_0@
+@BEGIN_BEFORE_5_6_0@
 @BEGIN_FROM_4_03_0@
 external of_float :
   float -> nativeint = "caml_nativeint_of_float"
@@ -119,7 +123,9 @@ external of_float : float -> nativeint = "nativeint_of_float"
 @END_BEFORE_3_08_0@
 
 @END_BEFORE_4_03_0@
-(** @since 4.03.0:
+@END_BEFORE_5_6_0@
+(** @since 5.6.0: external of_float : float -> nativeint = "%nativeint_of_float"
+@since 4.03.0:
     external of_float :
       float -> nativeint = "caml_nativeint_of_float"
         "caml_nativeint_of_float_unboxed"[@@unboxed ][@@noalloc ]
@@ -128,6 +134,10 @@ external of_float : float -> nativeint = "caml_nativeint_of_float"
 @since 3.07.0: external of_float : float -> nativeint = "nativeint_of_float"
  *)
 
+@BEGIN_FROM_5_6_0@
+external to_float : nativeint -> float = "%nativeint_to_float"
+@END_FROM_5_6_0@
+@BEGIN_BEFORE_5_6_0@
 @BEGIN_FROM_4_03_0@
 external to_float :
   nativeint -> float = "caml_nativeint_to_float"
@@ -142,7 +152,9 @@ external to_float : nativeint -> float = "nativeint_to_float"
 @END_BEFORE_3_08_0@
 
 @END_BEFORE_4_03_0@
-(** @since 4.03.0:
+@END_BEFORE_5_6_0@
+(** @since 5.6.0: external to_float : nativeint -> float = "%nativeint_to_float"
+@since 4.03.0:
     external to_float :
       nativeint -> float = "caml_nativeint_to_float"
         "caml_nativeint_to_float_unboxed"[@@unboxed ][@@noalloc ]
